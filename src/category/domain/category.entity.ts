@@ -18,6 +18,11 @@ export type CategoryCreateCommand = {
   is_activity?: boolean;
 }
 
+export type CategoryUpdateCommand = {
+  name?: string | null;
+  description?: string | null;
+}
+
 export class Category extends Entity {
 
 
@@ -55,8 +60,10 @@ export class Category extends Entity {
     }
   }
 
-  update(props: Partial<CategoryConstructorProps>): Category {
-    return new Category({...this, ...props})
+  update(props: Partial<CategoryUpdateCommand>): Category {
+    const category =  new Category({...this, ...props})
+    Category.validate(category);
+    return category;
   }
 
   changeName(name: string):void {

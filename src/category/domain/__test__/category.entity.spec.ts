@@ -81,6 +81,17 @@ describe('Category Unit test', () => {
     expect(validateSpy).toHaveBeenCalledTimes(3);
   });
 
+  test('update command', () => {
+    let category = Category.create({name: 'Movie'});
+    expect(validateSpy).toHaveBeenCalledTimes(1);
+    category = category.update({
+      name: 'new Movie',
+      description: 'new Description',
+    });
+    expect(category.name).toBe('new Movie');
+    expect(category.description).toBe('new Description');
+  })
+
   test('change category name', () => {
     const category = Category.create({name: 'Movie'});
     expect(validateSpy).toHaveBeenCalledTimes(1);
