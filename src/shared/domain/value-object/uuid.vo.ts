@@ -15,6 +15,10 @@ export class Uuid extends ValueObject {
             throw new InvalidUuidError();
         }
     }
+
+    toSting() {
+      return this.id;
+    }
 }
 
 
