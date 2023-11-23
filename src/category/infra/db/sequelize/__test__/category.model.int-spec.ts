@@ -58,7 +58,7 @@ describe('CategoryModel integration test', () => {
 
   test("should create a category", async () => {
     const arrange = {
-      category_id: new Uuid(),
+      category_id: new Uuid().id,
       name: "test",
       description: "test",
       is_activity: true,
