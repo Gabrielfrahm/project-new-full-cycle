@@ -48,7 +48,6 @@ export abstract class InMemoryRepository<E extends Entity, EntityId extends Valu
 
 }
 
-
 export abstract class InMemorySearchableRepository<
     E extends Entity,
     EntityId extends ValueObject,

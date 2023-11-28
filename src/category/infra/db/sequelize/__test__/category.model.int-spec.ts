@@ -2,18 +2,10 @@ import { DataType, Sequelize } from "sequelize-typescript";
 import { CategoryModel } from "../category.model";
 import { Category } from "../../../../domain/category.entity";
 import { Uuid } from "../../../../../shared/domain/value-object/uuid.vo";
+import { SetupSequelize } from "../../../../../shared/infra/testing/helper";
 
 describe('CategoryModel integration test', () => {
-  let sequelize;
-  beforeEach(async () => {
-    sequelize = new Sequelize({
-      dialect: 'sqlite',
-      storage: ':memory:',
-      models: [CategoryModel]
-    });
-    await sequelize.sync({force: true});
-  });
-
+  SetupSequelize({models: [CategoryModel]});
 
   test('mapping props', async () => {
     const attributesMap = CategoryModel.getAttributes();
